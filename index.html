@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Perfect</title>
+    <style>
+      * {
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Pixel Perfect</h1>
+    <p id="info"></p>
+    <p>Try to zoom this image! I dare you!</p>
+    <img id="snail-orig" src="assets/ugly-snail.png" alt="" />
+    <script>
+      imageScale = 1;
+
+      function update() {
+        // https://stackoverflow.com/questions/28905420/window-devicepixelratio-change-listener
+        matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`).addEventListener(
+          'change',
+          update,
+          { once: true }
+        );
+
+        const snailOrigImg = document.getElementById('snail-orig');
+        snailOrigImg.style.width = imageScale * snailOrigImg.naturalWidth / window.devicePixelRatio + 'px';
+
+        const infoParagraph = document.getElementById('info');
+        infoParagraph.textContent = `devicePixelRatio=${window.devicePixelRatio}`;
+      }
+
+      update();
+    </script>
+  </body>
+</html>
