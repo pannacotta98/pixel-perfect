@@ -9,12 +9,17 @@
   });
 
   handleImageScale('snail-orig', 1);
+
   handleImageScale('snail-scale', 'dynamic');
+  handleImageScale('checker-scale', 'dynamic');
 
   handleImageScale('pixelated-scaling', 6);
   handleImageScale('crisp-edges-scaling', 6);
 
-  document.getElementById('info').textContent = `devicePixelRatio=${window.devicePixelRatio}`;
+  handleImageScale('checker-non-int-scale-test', 2.4);
+  handleImageScale('checker-int-scale-test', 2);
+
+  document.getElementById('info').textContent = `device pixel ratio = ${window.devicePixelRatio}`;
 })();
 
 function handleImageScale(id, scale) {
