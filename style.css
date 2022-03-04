@@ -1,0 +1,17 @@
+* {
+  font-family: sans-serif;
+}
+body {
+  padding: 3rem;
+}
+h1 {
+  font-size: 3rem;
+}
+
+.crisp-edges {
+  image-rendering: crisp-edges;
+}
+
+.pixelated {
+  image-rendering: pixelated;
+}

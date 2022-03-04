@@ -5,36 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pixel Perfect</title>
-    <style>
-      * {
-        font-family: sans-serif;
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <h1>Pixel Perfect</h1>
     <p id="info"></p>
+
+    <h2>Force 1:1 pixel scale</h2>
     <p>Try to zoom this image! I dare you!</p>
     <img id="snail-orig" src="assets/ugly-snail.png" alt="" />
-    <script>
-      imageScale = 1;
 
-      function update() {
-        // https://stackoverflow.com/questions/28905420/window-devicepixelratio-change-listener
-        matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`).addEventListener(
-          'change',
-          update,
-          { once: true }
-        );
+    <h2>Scaling by whole pixels</h2>
+    <img class="pixelated" id="snail-scale" src="assets/ugly-snail.png" alt="" />
 
-        const snailOrigImg = document.getElementById('snail-orig');
-        snailOrigImg.style.width = imageScale * snailOrigImg.naturalWidth / window.devicePixelRatio + 'px';
+    <h2>Different browser image scalings</h2>
+    <p>pixelated</p>
+    <img class="pixelated" src="assets/ugly-snail.png" alt="" />
+    <img class="crisp-edges" src="assets/ugly-snail.png" alt="" />
 
-        const infoParagraph = document.getElementById('info');
-        infoParagraph.textContent = `devicePixelRatio=${window.devicePixelRatio}`;
-      }
-
-      update();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
