@@ -1,6 +1,6 @@
-# pixel-perfect
+Pixel Perfect
 
-small test of some strategies for avoiding problems with scaling in browsers.
+Small test of some strategies for avoiding problems with scaling in browsers. See [here](https://pannacotta98.github.io/pixel-perfect/)
 
 ## Interesting resources
 - Scaling of images in integer steps with pixel replication | [Demo](https://tanalin.com/_x/demos/integer-scaling/)
