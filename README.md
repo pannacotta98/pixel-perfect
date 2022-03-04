@@ -1,6 +1,6 @@
 # Pixel Perfect
 
-Small test of some strategies for avoiding problems with scaling in browsers. See [here](https://pannacotta98.github.io/pixel-perfect/)
+Small example of how integer nearest neigbor scaling can be used to keep pixel art crisp on the web. The example is hosted [here](https://pannacotta98.github.io/pixel-perfect/).
 
 ## Interesting resources
 
