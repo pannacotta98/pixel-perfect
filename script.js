@@ -1,23 +1,24 @@
-imageScale = 1;
-
-function update() {
+/**
+ * Runs on changes to window.devicePixelRatio.
+ */
+(function update() {
+  // Listen for changes in window.devicePixelRatio
   // https://stackoverflow.com/questions/28905420/window-devicepixelratio-change-listener
   matchMedia(`(resolution: ${window.devicePixelRatio}dppx)`).addEventListener('change', update, {
     once: true,
   });
 
-  const snailOrigImg = document.getElementById('snail-orig');
-  snailOrigImg.style.width =
-    (imageScale * snailOrigImg.naturalWidth) / window.devicePixelRatio + 'px';
+  handleImageScale('snail-orig', 1);
+  handleImageScale('snail-scale', 'dynamic');
 
-  const infoParagraph = document.getElementById('info');
-  infoParagraph.textContent = `devicePixelRatio=${window.devicePixelRatio}`;
+  handleImageScale('pixelated-scaling', 6);
+  handleImageScale('crisp-edges-scaling', 6);
 
-  const snailScaleImg = document.getElementById('snail-scale');
-  snailScaleImg.style.width =
-    (Math.round(Math.max(window.devicePixelRatio, 1)) * snailOrigImg.naturalWidth) /
-      window.devicePixelRatio +
-    'px';
+  document.getElementById('info').textContent = `devicePixelRatio=${window.devicePixelRatio}`;
+})();
+
+function handleImageScale(id, scale) {
+  const img = document.getElementById(id);
+  const finalScale = scale === 'dynamic' ? Math.round(Math.max(window.devicePixelRatio, 1)) : scale;
+  img.style.width = (finalScale * img.naturalWidth) / window.devicePixelRatio + 'px';
 }
-
-update();
